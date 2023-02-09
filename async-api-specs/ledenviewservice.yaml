@@ -1,0 +1,59 @@
+asyncapi: 2.5.0
+info:
+  title: Leden View Service
+  version: '1.0.0'
+  description: "Service voor de weergave van het ledenbestand."
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+
+servers:
+  local:
+    url: kafka://localhost:9093
+    protocol: kafka
+
+channels:
+  event.leden:
+    subscribe:
+      bindings:
+        kafka:
+          groupId: ledenviewservice
+      operationId: lidAangemeld
+      message:
+        oneOf:
+          - $ref: '#/components/messages/lidAangemeld'
+          - $ref: '#/components/messages/lidGewijzigd'
+          - $ref: '#/components/messages/lidVerwijderd'
+
+components:
+  messages:
+    lidAangemeld:
+      summary: Informeer over het lid dat is aangemeld
+      schemaFormat: application/vnd.aai.asyncapi+yaml;version=2.4.0
+      payload:
+        $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop/models/Lid.avsc'
+
+    lidGewijzigd:
+      summary: Informeer over het gewijzigde lid
+      schemaFormat: application/vnd.aai.asyncapi+yaml;version=2.4.0
+      payload:
+        $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop/models/Lid.avsc'
+
+    lidVerwijderd:
+      messageId: "LidVerwijderd"
+      summary: Informeer over welk lid verwijderd is
+      schemaFormat: application/schema+json;version=draft-07
+      payload:
+        type: object
+        $id: LidVerwijderdPayload
+        properties:
+          id:
+            type: string
+            format: uuid
+            description: 'Unieke identificatie van het lid te verwijderen.'
+          verzondenOp:
+            type: object
+            $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop/models/VerzondenOp.json'
+        required:
+          - id
+          - verzondenOp
