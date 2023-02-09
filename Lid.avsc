@@ -1,0 +1,36 @@
+{
+  "type": "record",
+  "name": "Lid",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": "Unieke identificatie van het lid te registreren"
+    },
+    {
+      "name": "naam",
+      "type": "string",
+      "doc": "De naam van het lid"
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "doc": "Email adres van het lid"
+    },
+    {
+      "name": "telefoonnummer",
+      "type": "string",
+      "doc": "Telefoonnummer van het lid"
+    },
+    {
+      "name": "adres",
+      "type": "string",
+      "doc": "Adres van het lid"
+    },
+    {
+      "name": "geboortedatum",
+      "type": "string",
+      "doc": "Geboortedatum van het lid"
+    }
+  ]
+}
