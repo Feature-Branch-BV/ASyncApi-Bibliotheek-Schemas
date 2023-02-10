@@ -74,4 +74,3 @@ components:
             $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop/models/VerzondenOp.json'
         required:
           - id
-          - verzondenOp
