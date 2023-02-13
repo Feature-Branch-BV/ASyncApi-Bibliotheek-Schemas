@@ -1,0 +1,9 @@
+components:
+  messages:
+    LidAangemeld:
+      messageId: "LidAangemeld"
+      name: "LidAangemeld"
+      summary: Informeer over het lid dat is aangemeld
+      schemaFormat: "application/vnd.apache.avro+json;version=1.9.0"
+      payload:
+        $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/models/Lid.avsc'

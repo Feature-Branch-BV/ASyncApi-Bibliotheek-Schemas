@@ -2,7 +2,7 @@ asyncapi: 2.5.0
 info:
   title: Leden View Service
   version: '1.0.0'
-  description: "Service voor de weergave van het ledenbestand."
+  description: "Service voor de weergave van bibliothekegerelateerde zaken."
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
@@ -14,32 +14,32 @@ servers:
 
 channels:
   event.leden:
-    subscribe:
+    publish:
       bindings:
         kafka:
           groupId: ledenviewservice
       operationId: lidAangemeld
       message:
         oneOf:
-          - $ref: '#/components/messages/lidAangemeld'
-          - $ref: '#/components/messages/lidGewijzigd'
-          - $ref: '#/components/messages/lidVerwijderd'
+          - $ref: '#/components/messages/LidAangemeld'
+          - $ref: '#/components/messages/LidGewijzigd'
+          - $ref: '#/components/messages/LidVerwijderd'
 
 components:
   messages:
-    lidAangemeld:
+    LidAangemeld:
       summary: Informeer over het lid dat is aangemeld
       schemaFormat: application/vnd.aai.asyncapi+yaml;version=2.4.0
       payload:
-        $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop/models/Lid.avsc'
+        $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/models/Lid.avsc'
 
-    lidGewijzigd:
+    LidGewijzigd:
       summary: Informeer over het gewijzigde lid
       schemaFormat: application/vnd.aai.asyncapi+yaml;version=2.4.0
       payload:
-        $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop/models/Lid.avsc'
+        $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/models/Lid.avsc'
 
-    lidVerwijderd:
+    LidVerwijderd:
       messageId: "LidVerwijderd"
       summary: Informeer over welk lid verwijderd is
       schemaFormat: application/schema+json;version=draft-07
@@ -53,7 +53,7 @@ components:
             description: 'Unieke identificatie van het lid te verwijderen.'
           verzondenOp:
             type: object
-            $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop/models/VerzondenOp.json'
+            $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/models/VerzondenOp.json'
         required:
           - id
           - verzondenOp

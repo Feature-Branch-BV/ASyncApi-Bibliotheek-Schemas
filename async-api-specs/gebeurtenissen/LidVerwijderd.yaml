@@ -1,0 +1,20 @@
+components:
+  messages:
+    LidVerwijderd:
+      messageId: "LidVerwijderd"
+      summary: Informeer over welk lid verwijderd is
+      schemaFormat: application/schema+json;version=draft-07
+      payload:
+        type: object
+        $id: LidVerwijderdPayload
+        properties:
+          id:
+            type: string
+            format: uuid
+            description: 'Unieke identificatie van het lid te verwijderen.'
+          verzondenOp:
+            type: object
+            $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/models/VerzondenOp.json'
+        required:
+          - id
+          - verzondenOp

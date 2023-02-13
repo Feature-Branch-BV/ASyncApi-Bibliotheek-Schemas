@@ -1,0 +1,32 @@
+{
+  "type": "record",
+  "name": "Boek",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": "UUID van het boek"
+    },
+    {
+      "name": "titel",
+      "type": "string",
+      "doc": "Titel van het boek"
+    },
+    {
+      "name": "auteur",
+      "type": "string",
+      "doc": "Auteur van het boek"
+    },
+    {
+      "name": "jaar",
+      "type": "string",
+      "doc": "Jaar van uitgave van het boek"
+    },
+    {
+      "name": "isbn",
+      "type": "string",
+      "doc": "ISBN van het boek",
+//      "pattern": "^(?:ISBN(?:-1[03])?:?\ )?(?=[0-9X]{10}$|(?=(?:[0-9]+[-\ ]){3})[-\ 0-9X]{13}$|97[89][0-9]{10}$|(?=(?:[0-9]+[-\ ]){4})[-\ 0-9]{17}$)(?:97[89][-\ ]?)?[0-9]{1,5}[-\ ]?[0-9]+[-\ ]?[0-9]+[-\ ]?[0-9X]$"
+    }
+  ]
+}

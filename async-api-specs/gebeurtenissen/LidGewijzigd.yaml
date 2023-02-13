@@ -1,0 +1,8 @@
+components:
+  messages:
+    LidGewijzigd:
+      messageId: "LidGewijzigd"
+      summary: Informeer over het gewijzigde lid
+      schemaFormat: "application/vnd.apache.avro+json;version=1.9.0"
+      payload:
+        $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/models/Lid.avsc'

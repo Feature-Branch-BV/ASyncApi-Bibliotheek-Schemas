@@ -1,0 +1,46 @@
+{
+  "type": "record",
+  "name": "Tijdschrift",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": "Unique identifier of the Tijdschrift"
+    },
+    {
+      "name": "naam",
+      "type": "string",
+      "doc": "Naam van het ijdschrift"
+    },
+    {
+      "name": "isbn",
+      "type": "string",
+      "doc": "ISBN van het tijdschrift",
+      "minLength": 10,
+      "maxLength": 13
+    },
+    {
+      "name": "uitgever",
+      "type": "string",
+      "doc": "Uitgever van het tijdschrift"
+    },
+    {
+      "name": "datum_publicatie",
+      "type": "string",
+      "doc": "Datum publicatie van het tijdschrift",
+      "logicalType": "date"
+    },
+    {
+      "name": "aantal_paginas",
+      "type": "int",
+      "doc": "Aantal pagina's van het tijdschrift",
+      "minimum": 1,
+      "maximum": 9999
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "doc": "Type tijdschrift"
+    }
+  ]
+}
