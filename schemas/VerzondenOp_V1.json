@@ -1,6 +1,7 @@
 {
   "$id": "VerzondenOp",
   "type": "object",
+  "description": "Standaard json schema voor verzenddatum",
   "properties": {
     "verzondenOp": {
       "type": "string",

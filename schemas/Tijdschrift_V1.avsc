@@ -1,6 +1,7 @@
 {
   "type": "record",
   "name": "Tijdschrift",
+  "doc": "Schema voor een standaard tijdschrift:",
   "fields": [
     {
       "name": "id",

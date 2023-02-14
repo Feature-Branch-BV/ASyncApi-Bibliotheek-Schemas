@@ -1,6 +1,7 @@
 {
   "type": "record",
   "name": "Lid",
+  "doc": "Schema voor een standaard Lid",
   "fields": [
     {
       "name": "id",
