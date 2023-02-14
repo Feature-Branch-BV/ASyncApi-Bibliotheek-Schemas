@@ -22,6 +22,17 @@ channels:
       summary: 'Kanaal waarop de berichten m.b.t. de leden worden verstuurd.'
       message:
         oneOf:
-          - $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/async-api-specs/gebeurtenissen/LidAangemeld.yaml#/components/messages/LidAangemeld'
-          - $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/async-api-specs/gebeurtenissen/LidGewijzigd.yaml#/components/messages/LidGewijzigd'
-          - $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/async-api-specs/gebeurtenissen/LidVerwijderd.yaml#/components/messages/LidVerwijderd'
+          - $ref: '#/components/messages/LidAangemeld'
+          - $ref: '#/components/messages/LidGewijzigd'
+          - $ref: '#/components/messages/LidVerwijderd'
+
+components:
+  messages:
+    LidAangemeld:
+      $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/async-api-specs/gebeurtenissen/LidAangemeld.yaml#/components/messages/LidAangemeld'
+
+    LidGewijzigd:
+      $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/async-api-specs/gebeurtenissen/LidGewijzigd.yaml#/components/messages/LidGewijzigd'
+
+    LidVerwijderd:
+      $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/async-api-specs/gebeurtenissen/LidVerwijderd.yaml#/components/messages/LidVerwijderd'

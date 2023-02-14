@@ -1,6 +1,6 @@
 asyncapi: 2.5.0
 info:
-  title: Leden View Service
+  title: Rapportage Service
   version: '1.0.0'
   description: "Service voor de weergave van bibliothekegerelateerde zaken."
   license:
