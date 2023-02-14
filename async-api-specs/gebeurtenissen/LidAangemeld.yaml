@@ -1,3 +1,7 @@
+asyncapi: v2.4.0
+info:
+  title: Lid Aangemeld Gebeurtenis V1
+  version: '1.0.0'
 components:
   messages:
     LidAangemeld:
