@@ -1,0 +1,27 @@
+asyncapi: v2.4.0
+
+info:
+  title: Lid Aangemeld Gebeurtenis V1
+  version: '1.0.0'
+
+components:
+  messages:
+    LidAangemeld:
+      name: "LidAangemeld"
+      messageId: "LidAangemeld"
+      summary: Informeer over het lid dat is aangemeld
+      schemaFormat: "application/vnd.apache.avro+json;version=1.9.0"
+      contentType: avro/binary
+      payload:
+        $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/models/Lid.avsc'
+      examples:
+        - summary: Voorbeeld van een LidAangemeld Gebeurtenis
+          headers:
+            content-type: application/avro
+          payload:
+            id: "f6a5208b-ca33-42d7-a8ca-9d2a9d31cbc3"
+            naam: "Jan van Heerlen"
+            email: "janvanheerlen@provider.nl"
+            telefoonnummer: "099-12345678"
+            adres: "Kalverstraat 8"
+            geboortedatum: "01-12-1970"

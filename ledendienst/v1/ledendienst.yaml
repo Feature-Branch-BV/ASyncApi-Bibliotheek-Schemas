@@ -1,0 +1,36 @@
+asyncapi: 2.4.0
+
+id: urn:nl.dummy.gebeurtenissturing:ledendienst:v1
+
+info:
+  title: Ledendienst API
+  version: '1.0.0'
+  description: "Service voor het registreren, wijzigen en verwijderen van leden."
+  contact:
+    name: Ledendienst Support
+    url: http://voorbeeldigeorganisatie.nl.nl
+    email: voorbeeld@voorbeeldigeorganisatie.nl
+    x-project-name: POC Gebeurtenissturing
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+
+servers:
+  local-kafka:
+    protocol: kafka
+    description: Lokale Kafka Omgeving
+    url: kafka://localhost:9093
+
+channels:
+  ledendienst-gebeurtenissen-v1:
+    subscribe:
+      summary: 'Kanaal waarop de berichten m.b.t. de leden worden verstuurd.'
+      operationId: ledenDienstGebeurtenis
+      bindings:
+        kafka:
+          groupId: ledendienst
+      message:
+        oneOf:
+          - $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/gebeurtenissen/v1/LidAangemeld.yaml#/components/messages/LidAangemeld'
+          - $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/gebeurtenissen/v1/LidGewijzigd.yaml#/components/messages/LidGewijzigd'
+          - $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/gebeurtenissen/v1/LidVerwijderd.yaml#/components/messages/LidVerwijderd'
