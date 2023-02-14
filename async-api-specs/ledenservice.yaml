@@ -1,6 +1,6 @@
 asyncapi: 2.4.0
 info:
-  title: Rapportage Service
+  title: Leden Service
   version: '1.0.0'
   description: "Service voor het registreren, wijzigen en verwijderen van leden."
   license:
