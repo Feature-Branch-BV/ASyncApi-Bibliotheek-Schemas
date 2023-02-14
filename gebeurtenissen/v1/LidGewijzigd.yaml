@@ -6,8 +6,22 @@ info:
 components:
   messages:
     LidGewijzigd:
+      name: "LidGewijzigd"
       messageId: "LidGewijzigd"
       summary: Informeer over het gewijzigde lid
       schemaFormat: "application/vnd.apache.avro+json;version=1.9.0"
+      contentType: avro/binary
       payload:
-        $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/schemas/Lid.avsc'
+        $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/schemas/Lid_V1.avsc'
+        x-version: '1.0.0'
+      examples:
+        - summary: Voorbeeld van een LidGewijzigd Gebeurtenis
+          headers:
+            content-type: application/avro
+          payload:
+            id: "f6a5208b-ca33-42d7-a8ca-9d2a9d31cbc3"
+            naam: "Janine van Heerlen"
+            email: "janinevanheerlen@provider.nl"
+            telefoonnummer: "099-12345678"
+            adres: "Kalverstraat 8"
+            geboortedatum: "01-12-1970"

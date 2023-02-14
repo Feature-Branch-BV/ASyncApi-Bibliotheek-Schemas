@@ -13,7 +13,8 @@ components:
       schemaFormat: "application/vnd.apache.avro+json;version=1.9.0"
       contentType: avro/binary
       payload:
-        $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/schemas/Lid.avsc'
+        $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/schemas/Lid_V1.avsc'
+        x-version: '1.0.0'
       examples:
         - summary: Voorbeeld van een LidAangemeld Gebeurtenis
           headers:

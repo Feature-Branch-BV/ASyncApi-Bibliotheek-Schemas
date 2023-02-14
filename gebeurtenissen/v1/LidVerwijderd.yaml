@@ -6,9 +6,11 @@ info:
 components:
   messages:
     LidVerwijderd:
+      name: "LidVerwijderd"
       messageId: "LidVerwijderd"
       summary: Informeer over welk lid verwijderd is
       schemaFormat: application/schema+json;version=draft-07
+      contentType: application/json
       payload:
         type: object
         $id: LidVerwijderdPayload
@@ -19,7 +21,15 @@ components:
             description: 'Unieke identificatie van het lid te verwijderen.'
           verzondenOp:
             type: object
-            $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/schemas/VerzondenOp.json'
+            $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/schemas/VerzondenOp_V1.json'
+            x-version: '1.0.0'
         required:
           - id
           - verzondenOp
+      examples:
+        - summary: Voorbeeld van een LidVerwijderd Gebeurtenis
+          headers:
+            content-type: application/json
+          payload:
+            id: "f6a5208b-ca33-42d7-a8ca-9d2a9d31cbc3"
+            verzondenOp: "2018-02-21 12:00:00"
