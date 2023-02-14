@@ -19,7 +19,7 @@ components:
             description: 'Unieke identificatie van het lid te verwijderen.'
           verzondenOp:
             type: object
-            $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/models/VerzondenOp.json'
+            $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/schemas/VerzondenOp.json'
         required:
           - id
           - verzondenOp
