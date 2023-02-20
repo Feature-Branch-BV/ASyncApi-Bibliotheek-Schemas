@@ -1,8 +1,13 @@
-asyncapi: v2.4.0
+asyncapi: 2.4.0
 
 info:
   title: Lid Aangemeld Gebeurtenis V1
   version: '1.0.0'
+
+# Parser / dereferencer e.d. heeft een channels object nodig, anders
+# is het geen valide asyncopi object.
+channels:
+  {}
 
 components:
   messages:
@@ -13,7 +18,7 @@ components:
       schemaFormat: "application/vnd.apache.avro+json;version=1.9.0"
       contentType: avro/binary
       payload:
-        $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/schemas/Lid_V1.avsc'
+        $ref: 'http://192.168.1.205:8080/apis/registry/v2/groups/bibliotheek/artifacts/Lid/versions/1'
         x-version: '1.0.0'
       examples:
         - summary: Voorbeeld van een LidAangemeld Gebeurtenis

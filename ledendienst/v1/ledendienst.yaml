@@ -31,6 +31,6 @@ channels:
           groupId: ledendienst
       message:
         oneOf:
-          - $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/gebeurtenissen/v1/LidAangemeld.yaml#/components/messages/LidAangemeld'
-          - $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/gebeurtenissen/v1/LidGewijzigd.yaml#/components/messages/LidGewijzigd'
-          - $ref: 'https://raw.githubusercontent.com/Feature-Branch-BV/ASyncApi-Bibliotheek-Schemas/develop-demo/gebeurtenissen/v1/LidVerwijderd.yaml#/components/messages/LidVerwijderd'
+          - $ref: 'http://192.168.1.205:8080/apis/registry/v2/groups/bibliotheek/artifacts/LidAangemeld/versions/1#/components/messages/LidAangemeld'
+          - $ref: 'http://192.168.1.205:8080/apis/registry/v2/groups/bibliotheek/artifacts/LidGewijzigd/versions/1#/components/messages/LidGewijzigd'
+          - $ref: 'http://192.168.1.205:8080/apis/registry/v2/groups/bibliotheek/artifacts/LidVerwijderd/versions/1#/components/messages/LidVerwijderd'
