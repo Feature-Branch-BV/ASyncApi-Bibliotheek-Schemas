@@ -1,0 +1,27 @@
+asyncapi: 2.4.0
+
+info:
+  title: Uitleen Verzoek Behandeld
+  version: '2'
+
+# Parser / dereferencer e.d. heeft een channels object nodig, anders
+# is het geen valide asyncopi object.
+channels:
+  {}
+
+components:
+  messages:
+    UitleenVerzoekBehandeld:
+      name: UitleenVerzoekBehandeld
+      messageId: UitleenVerzoekBehandeld
+      summary: "Resultaat van het behandelde uitleenverzoek."
+      schemaFormat: application/vnd.aai.asyncapi+yaml;version=2.0.0
+      payload:
+        $id: "UitleenVerzoekBehandeld"
+        type: "object"
+        properties:
+          UitleenId:
+            $id: "UitleenId"
+            type: string
+            format: uuid
+            descriptions: "Unieke identificatie van het uitleenverzoek."

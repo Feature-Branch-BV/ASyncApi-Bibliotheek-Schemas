@@ -1,16 +1,15 @@
 asyncapi: 2.4.0
 
-id: urn:nl.dummy.gebeurtenissturing:ledendienst:v1
-
 info:
-  title: Ledendienst API
-  version: '1.0.0'
+  title: Ledendienst
+  version: '11'
   description: "Service voor het registreren, wijzigen en verwijderen van leden."
   contact:
     name: Ledendienst Support
     url: http://voorbeeldigeorganisatie.nl.nl
     email: voorbeeld@voorbeeldigeorganisatie.nl
     x-project-name: POC Gebeurtenissturing
+
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
@@ -21,16 +20,54 @@ servers:
     description: Lokale Kafka Omgeving
     url: kafka://localhost:9093
 
+defaultContentType: avro/binary
+tags:
+  []
+
 channels:
-  ledendienst-gebeurtenissen-v1:
+  ledendienst.1.0.event.lid.aangemeld:
+    bindings:
+      kafka:
+        groupid: ledendienst
     subscribe:
-      summary: 'Kanaal waarop de berichten m.b.t. de leden worden verstuurd.'
-      operationId: ledenDienstGebeurtenis
+      operationId: lidaangemeld
+      message:
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/lidaangemeld/versions/18#/components/messages/LidAangemeld'
+
+  ledendienst.1.0.event.lid.gewijzigd:
+    bindings:
+      kafka:
+        groupid: ledendienst
+    subscribe:
+      operationId: lidgewijzigd
+      message:
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/lidgewijzigd/versions/3#/components/messages/LidGewijzigd'
+
+  ledendienst.1.0.event.lid.verwijderd:
+    bindings:
+      kafka:
+        groupid: ledendienst
+    subscribe:
+      operationId: lidverwijderd
+      message:
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/lidverwijderd/versions/15#/components/messages/LidVerwijderd'
+
+  ledendienst.1.0.event.lid.uitleenverzoekbehandeld:
+    bindings:
+      kafka:
+        groupid: ledendienst
+    subscribe:
+      operationId: uitleenVerzoekBehandeld
+      message:
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/uitleenverzoekbehandeld/versions/1#/components/messages/UitleenVerzoekBehandeld'
+
+
+  # Quick uitleenflow t.b.v. verificatie of lid bestaat.
+  uitleendienst.1.0.command.lid.verzoektotuitlenen:
+    publish:
       bindings:
         kafka:
           groupId: ledendienst
+      operationId: verzoekTotUitlenen
       message:
-        oneOf:
-          - $ref: 'http://192.168.1.205:8080/apis/registry/v2/groups/bibliotheek/artifacts/LidAangemeld/versions/1#/components/messages/LidAangemeld'
-          - $ref: 'http://192.168.1.205:8080/apis/registry/v2/groups/bibliotheek/artifacts/LidGewijzigd/versions/1#/components/messages/LidGewijzigd'
-          - $ref: 'http://192.168.1.205:8080/apis/registry/v2/groups/bibliotheek/artifacts/LidVerwijderd/versions/1#/components/messages/LidVerwijderd'
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/verzoektotuitlenen/versions/2#/components/messages/VerzoekTotUitlenen'

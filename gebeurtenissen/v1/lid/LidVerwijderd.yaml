@@ -1,0 +1,30 @@
+---
+asyncapi: 2.4.0
+info:
+  title: Lid Verwijderd Gebeurtenis
+  version: '15'
+channels: {}
+components:
+  messages:
+    LidVerwijderd:
+      name: LidVerwijderd
+      messageId: LidVerwijderd
+      summary: Informeer over welk lid verwijderd is
+      schemaFormat: application/vnd.aai.asyncapi+yaml;version=2.0.0
+      payload:
+        type: "object"
+        "$id": LidVerwijderd
+        properties:
+          id:
+            $id: "id"
+            type: string
+            format: uuid
+            description: 'Unieke identificatie van het lid te verwijderen.'
+          verzondenOp:
+            $id: "VerzondenOp"
+            type: string
+            format: date
+            description: "Datum van verzoek tot verwijderen"
+        required:
+          - id
+          - verzondenOp

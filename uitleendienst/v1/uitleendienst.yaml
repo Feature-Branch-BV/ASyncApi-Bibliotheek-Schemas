@@ -1,0 +1,117 @@
+asyncapi: 2.4.0
+info:
+  title: Uitleendienst
+  version: '6'
+  description: "Service voor het uitlenen en inleveren van boeken / tijdschriften"
+  contact:
+    name: Uitleendienst Support
+    url: http://voorbeeldigeorganisatie.nl.nl
+    email: voorbeeld@voorbeeldigeorganisatie.nl
+    x-project-name: POC Gebeurtenissturing
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+
+servers:
+  local-kafka:
+    protocol: kafka
+    description: Lokale Kafka Omgeving
+    url: kafka://localhost:9093
+
+defaultContentType: avro/binary
+tags:
+  []
+
+channels:
+  #BOEKEN
+  uitleendienst.1.0.event.boek.aangekocht:
+    subscribe:
+      bindings:
+        kafka:
+          groupId: uitleendienst
+      operationId: boekAangekocht
+      message:
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/boekaangekocht/versions/1#/components/messages/BoekAangekocht'
+
+  uitleendienst.1.0.event.boek.uitgeleend:
+    subscribe:
+      bindings:
+        kafka:
+          groupId: uitleendienst
+      operationId: boekUitgeleend
+      message:
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/boekuitgeleend/versions/2#/components/messages/BoekUitgeleend'
+
+  uitleendienst.1.0.event.boek.teruggebracht:
+    subscribe:
+      bindings:
+        kafka:
+          groupId: uitleendienst
+      operationId: boekTeruggebracht
+      message:
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/boekteruggebracht/versions/2#/components/messages/BoekTeruggebracht'
+
+  uitleendienst.1.0.event.boek.verwijderd:
+    subscribe:
+      bindings:
+        kafka:
+          groupId: uitleendienst
+      operationId: boekVerwijderd
+      message:
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/boekverwijderd/versions/2#/components/messages/BoekVerwijderd'
+
+ #TIJDSCHRIFETEN
+  uitleendienst.1.0.event.tijdschrift.aangekocht:
+    subscribe:
+      bindings:
+        kafka:
+          groupId: uitleendienst
+      operationId: tijdschriftAangekocht
+      message:
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/boekaangekocht/versions/1#/components/messages/TijdschriftAangekocht'
+
+  uitleendienst.1.0.event.tijdschrift.uitgeleend:
+    subscribe:
+      bindings:
+        kafka:
+          groupId: uitleendienst
+      operationId: tijdschriftUitgeleend
+      message:
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/boekuitgeleend/versions/2#/components/messages/TijdschriftUitgeleend'
+
+  uitleendienst.1.0.event.tijdschrift.teruggebracht:
+    subscribe:
+      bindings:
+        kafka:
+          groupId: uitleendienst
+      operationId: tijdschriftTeruggebracht
+      message:
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/boekteruggebracht/versions/2#/components/messages/TijdschriftTeruggebracht'
+
+  uitleendienst.1.0.event.tijdschrift.verwijderd:
+    subscribe:
+      bindings:
+        kafka:
+          groupId: uitleendienst
+      operationId: tijdschriftVerwijderd
+      message:
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/boekverwijderd/versions/2#/components/messages/TijdschriftVerwijderd'
+
+  # VERZOEK MECHANISME
+  uitleendienst.1.0.command.lid.verzoektotuitlenen:
+    subscribe:
+      bindings:
+        kafka:
+          groupId: uitleendienst
+      operationId: verzoekTotUitlenen
+      message:
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/verzoektotuitlenen/versions/2#/components/messages/VerzoekTotUitlenen'
+
+  uitleendienst.1.0.event.lid.uitleenverzoekbehandeld:
+    publish:
+      bindings:
+        kafka:
+          groupId: ledendienst
+      operationId: uitleenverzoekbehandeld
+      message:
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-gebeurtenissen/artifacts/uitleenverzoekbehandeld/versions/1#/components/messages/UitleenVerzoekBehandeld'

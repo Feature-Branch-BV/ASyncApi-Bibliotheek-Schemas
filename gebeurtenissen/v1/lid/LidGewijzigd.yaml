@@ -1,22 +1,23 @@
 asyncapi: 2.4.0
 
 info:
-  title: Lid Gewijzigd Gebeurtenis V1
-  version: '1.0.0'
+  title: Lid Gewijzigd Gebeurtenis
+  version: '3'
 
+# Parser / dereferencer e.d. heeft een channels object nodig, anders
+# is het geen valide asyncopi object.
 channels:
   {}
 
 components:
   messages:
     LidGewijzigd:
-      name: "LidGewijzigd"
-      messageId: "LidGewijzigd"
-      summary: Informeer over het gewijzigde lid
+      name: LidGewijzigd
+      messageId: LidGewijzigd
       schemaFormat: "application/vnd.apache.avro+json;version=1.9.0"
       contentType: avro/binary
       payload:
-        $ref: 'http://192.168.1.205:8080/apis/registry/v2/groups/bibliotheek/artifacts/Lid/versions/1'
+        $ref: 'http://192.168.1.230:8080/apis/registry/v2/groups/bibliotheek-schema/artifacts/lid/versions/1'
         x-version: '1.0.0'
       examples:
         - summary: Voorbeeld van een LidGewijzigd Gebeurtenis

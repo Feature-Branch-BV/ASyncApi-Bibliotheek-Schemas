@@ -1,0 +1,27 @@
+asyncapi: 2.4.0
+
+info:
+  title: Boek Verwijderd Gebeurtenis
+  version: '2'
+
+# Parser / dereferencer e.d. heeft een channels object nodig, anders
+# is het geen valide asyncopi object.
+channels:
+  {}
+
+components:
+  messages:
+    BoekVerwijderd:
+      name: BoekVerwijderd
+      messageId: BoekVerwijderd
+      summary: "Informatie over het verwijderde boek"
+      schemaFormat: application/vnd.aai.asyncapi+yaml;version=2.0.0
+      payload:
+        $id: "BoekVerwijderd"
+        type: "object"
+        properties:
+          id:
+            $id: "id"
+            type: string
+            format: uuid
+            descriptions: "Unieke identificatie van het boek"

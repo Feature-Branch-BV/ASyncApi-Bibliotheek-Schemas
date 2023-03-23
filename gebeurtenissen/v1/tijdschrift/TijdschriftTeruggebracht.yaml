@@ -1,0 +1,27 @@
+asyncapi: 2.4.0
+
+info:
+  title: Tijdschrift Teruggebracht Gebeurtenis
+  version: '2'
+
+# Parser / dereferencer e.d. heeft een channels object nodig, anders
+# is het geen valide asyncopi object.
+channels:
+  {}
+
+components:
+  messages:
+    TijdschriftTeruggebracht:
+      name: TijdschriftTeruggebracht
+      messageId: TijdschriftTeruggebracht
+      summary: "Informatie over het teruggebrachte Tijdschrift"
+      schemaFormat: application/vnd.aai.asyncapi+yaml;version=2.0.0
+      payload:
+        $id: "TijdschriftTeruggebracht"
+        type: "object"
+        properties:
+          id:
+            $id: "id"
+            type: string
+            format: uuid
+            descriptions: "Unieke identificatie van het Tijdschrift"
